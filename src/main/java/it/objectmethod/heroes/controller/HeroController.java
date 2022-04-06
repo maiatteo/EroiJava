@@ -4,6 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +24,16 @@ public class HeroController {
 	@GetMapping("/all")
 	public List<HeroDto> findAll() {
 		return heroService.findAll();
+	}
+	
+	@GetMapping("/{id}")
+	public HeroDto findById(@PathVariable Long id) {
+		return heroService.findById(id);
+	}
+	
+	@PostMapping("/create")
+	public HeroDto create(@RequestBody String name) {
+		return heroService.createHero(name);
 	}
 
 }

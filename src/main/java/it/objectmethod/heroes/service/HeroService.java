@@ -1,6 +1,7 @@
 package it.objectmethod.heroes.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,20 @@ public class HeroService {
 	public List<HeroDto> findAll(){
 		List<Hero> lst = heroRepo.findAll();
 		return heroMapper.toDto(lst);
+	}
+	
+	public HeroDto findById(Long id) {
+		Optional<Hero> hero = heroRepo.findById(id);
+		if(hero.isPresent()) {
+			return heroMapper.toDto(hero.get());
+		}
+		return null;
+	}
+	
+	public HeroDto createHero(String name) {
+		Hero inputHero = new Hero(name);
+		Hero hero = heroRepo.save(inputHero);
+		return heroMapper.toDto(hero);	
 	}
 
 }
