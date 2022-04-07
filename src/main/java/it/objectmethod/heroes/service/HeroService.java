@@ -38,5 +38,9 @@ public class HeroService {
 		Hero hero = heroRepo.save(inputHero);
 		return heroMapper.toDto(hero);	
 	}
+	public Boolean delete(Long id) {
+		heroRepo.deleteById(id);
+		return Boolean.TRUE;
+	}
 
 }

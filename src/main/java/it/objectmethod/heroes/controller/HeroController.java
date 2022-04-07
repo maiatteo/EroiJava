@@ -3,6 +3,7 @@ package it.objectmethod.heroes.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +35,10 @@ public class HeroController {
 	@PostMapping("/create")
 	public HeroDto create(@RequestBody String name) {
 		return heroService.createHero(name);
+	}
+	@DeleteMapping("/delete/{id}")
+	public Boolean delete(@PathVariable("id")Long id) {
+		return heroService.delete(id);
 	}
 
 }
