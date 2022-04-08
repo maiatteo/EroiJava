@@ -42,5 +42,8 @@ public class HeroService {
 		heroRepo.deleteById(id);
 		return Boolean.TRUE;
 	}
+	public HeroDto updateHero(HeroDto hero) {
+		return heroMapper.toDto(heroRepo.save(heroMapper.toModel(hero)));
+	}
 
 }

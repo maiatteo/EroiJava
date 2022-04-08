@@ -3,6 +3,7 @@ package it.objectmethod.heroes.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import it.objectmethod.heroes.dto.HeroDto;
 import it.objectmethod.heroes.service.HeroService;
-
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping("api/heroes")
 public class HeroController {
@@ -36,9 +37,13 @@ public class HeroController {
 	public HeroDto create(@RequestBody String name) {
 		return heroService.createHero(name);
 	}
-	@DeleteMapping("/delete/{id}")
+	@PostMapping("/delete/{id}")
 	public Boolean delete(@PathVariable("id")Long id) {
 		return heroService.delete(id);
+	}
+	@PostMapping("/update")
+	public HeroDto update(@RequestBody HeroDto dto) {
+		return heroService.updateHero(dto);
 	}
 
 }
