@@ -1,0 +1,8 @@
+<div *ngIf="hero">
+  <div><span>id: </span>{{hero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" #Name/>
+  </div>
+  <button type="button" (click)="update(Name.value)">Aggiorna</button>
+</div>

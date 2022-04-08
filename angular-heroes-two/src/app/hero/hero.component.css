@@ -1,0 +1,68 @@
+td {
+    color: black;
+
+}
+
+.delete {
+    border-radius: 10px 10px;
+    border-width: 2px;
+    background-color:gold;
+    box-shadow: 0px 0px 2px 2px salmon inset;
+    
+}
+.delete:hover{
+background-color: red;
+box-shadow:aliceblue 0px 0px 1.3px 1px inset;
+transition: 0.5s;
+color:white;
+
+
+}
+tbody {
+    text-align: center;
+    background-color:aquamarine
+}
+
+thead {
+    text-align: center;
+    background-color: cyan;
+}
+#crea:hover{
+background-color:green;
+transform: translateZ(25px);
+box-shadow: blue 0px 0px 3px 3px;
+
+}
+#crea{
+    text-align: center;
+    transform-style: preserve-3d;
+    width:70px;
+    transform:perspective(500px) rotatey(10deg) rotatex(10deg);
+    box-shadow:0px 0px 5px 0px #000000;
+    transition: 0.5s;
+   
+}
+.creaBottone{
+    height:30px;
+    display: flex;
+    align-content:center;
+}
+.contenitore{
+    background-color:cyan
+}
+#aggiorna:hover{
+    background-color:green;
+    transform: translateZ(25px);
+    box-shadow: blue 0px 0px 3px 3px;
+    
+    }
+    #aggiorna{
+        text-align: center;
+        transform-style: preserve-3d;
+        width:90px;
+        transform:perspective(500px) rotatey(10deg) rotatex(10deg);
+        box-shadow:0px 0px 5px 0px #000000;
+        transition: 0.5s;
+       
+    }
+
